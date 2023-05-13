@@ -9,15 +9,16 @@ from django.http import *
 import random
 import string
 
+
 def generate_random_string():
-    random_string = ''
+    random_string = ""
     for _ in range(6):
         random_choice = random.choice(
-            [random.choice(string.ascii_letters), random.choice(string.digits)])
+            [random.choice(string.ascii_letters), random.choice(string.digits)]
+        )
         random_string += random_choice
     return random_string
 
+
 def index(request):
     return render(request, "index.html", {})
-
-
