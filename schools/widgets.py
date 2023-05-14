@@ -7,7 +7,7 @@ class CustomDateInput(forms.DateInput):
 
     def __init__(self, attrs=None, format=None):
         attrs = attrs or {}
-        attrs.update({'class': 'datepicker', "type": "date"})
+        attrs.update({"class": "datepicker", "type": "date"})
         self.format = format or self.DATE_INPUT_WIDGET_REQUIRED_FORMAT
         super().__init__(attrs, format=self.format)
 
@@ -15,5 +15,5 @@ class CustomDateInput(forms.DateInput):
 class PastDateField(CustomDateInput):
     def __init__(self, attrs=None, format=None):
         attrs = attrs or {}
-        attrs.update({'max': date.today()})
+        attrs.update({"max": date.today()})
         super().__init__(attrs, format=format)

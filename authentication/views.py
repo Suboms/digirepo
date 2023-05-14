@@ -6,6 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from django.http import *
+from schools.models import *
+from schools.forms import *
 import random
 import string
 
@@ -22,3 +24,8 @@ def generate_random_string():
 
 def index(request):
     return render(request, "index.html", {})
+
+
+def school(request):
+    form = SchoolCreationForm()
+    return render(request, "school/school.html", {"form": form})
