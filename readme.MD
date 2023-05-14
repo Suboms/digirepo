@@ -1,1 +1,1 @@
-# A didgtal repository for academic research work
+# A digital repository for academic research work
