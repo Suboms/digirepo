@@ -3835,6 +3835,19 @@
     }
   },
   {
+    "model": "admin.logentry",
+    "pk": 296,
+    "fields": {
+      "action_time": "2023-05-15T21:56:45.146Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "Abuja",
+      "object_repr": "Abuja",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -4550,13 +4563,33 @@
   },
   {
     "model": "schools.state",
-    "pk": "Abuja",
+    "pk": "Adamawa",
     "fields": { "country": "Nigeria" }
   },
   {
     "model": "schools.state",
-    "pk": "Adamawa",
-    "fields": { "country": "Nigeria" }
+    "pk": "Adrar",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Aïn Defla",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Ain Guezzam",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Ain Salah",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Aïn Témouchent",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4565,8 +4598,18 @@
   },
   {
     "model": "schools.state",
+    "pk": "Algiers",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Anambra",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Annaba",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4595,6 +4638,11 @@
   },
   {
     "model": "schools.state",
+    "pk": "Batna",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Bauchi",
     "fields": { "country": "Nigeria" }
   },
@@ -4605,13 +4653,73 @@
   },
   {
     "model": "schools.state",
+    "pk": "Béchar",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Béjaïa",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Béni Abbès",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Benue",
     "fields": { "country": "Nigeria" }
   },
   {
     "model": "schools.state",
+    "pk": "Berat",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Biskra",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Blida",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Bordj Baji Mokhtar",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Bordj Bou Arréridj",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Borno",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Bouïra",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Boumerdès",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Chlef",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Constantine",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4630,6 +4738,31 @@
   },
   {
     "model": "schools.state",
+    "pk": "Diber",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Djanet",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Djelfa",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Durres",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Eastern District",
+    "fields": { "country": "American Samoa" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Ebonyi",
     "fields": { "country": "Nigeria" }
   },
@@ -4638,6 +4771,36 @@
     "model": "schools.state",
     "pk": "Ekiti",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Elbasan",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "El Bayadh",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "El Menia",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "El M'Ghair",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "El Oued",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "El Tarf",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4654,6 +4817,17 @@
     "pk": "Faryab",
     "fields": { "country": "Afghanistan" }
   },
+  { "model": "schools.state", "pk": "Fct", "fields": { "country": "Nigeria" } },
+  {
+    "model": "schools.state",
+    "pk": "Fier",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Ghardaïa",
+    "fields": { "country": "Algeria" }
+  },
   {
     "model": "schools.state",
     "pk": "Ghazni",
@@ -4666,8 +4840,18 @@
   },
   {
     "model": "schools.state",
+    "pk": "Gjirokaster",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Gombe",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Guelma",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4679,11 +4863,21 @@
     "pk": "Herat",
     "fields": { "country": "Afghanistan" }
   },
+  {
+    "model": "schools.state",
+    "pk": "Illizi",
+    "fields": { "country": "Algeria" }
+  },
   { "model": "schools.state", "pk": "Imo", "fields": { "country": "Nigeria" } },
   {
     "model": "schools.state",
     "pk": "Jigawa",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Jijel",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4727,6 +4921,11 @@
   },
   {
     "model": "schools.state",
+    "pk": "Khenchela",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Khost",
     "fields": { "country": "Afghanistan" }
   },
@@ -4734,6 +4933,16 @@
     "model": "schools.state",
     "pk": "Kogi",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Korce",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Kukes",
+    "fields": { "country": "Albania" }
   },
   {
     "model": "schools.state",
@@ -4757,13 +4966,58 @@
   },
   {
     "model": "schools.state",
+    "pk": "Laghouat",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Lagos",
     "fields": { "country": "Nigeria" }
   },
   {
     "model": "schools.state",
+    "pk": "Lezhe",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Logar",
     "fields": { "country": "Afghanistan" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "ManuʻA District",
+    "fields": { "country": "American Samoa" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Mascara",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Médéa",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Mila",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Mostaganem",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "M'Sila",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Naâma",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4802,8 +5056,28 @@
   },
   {
     "model": "schools.state",
+    "pk": "Oran",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Osun",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Ouargla",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Ouled Djellal",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Oum El Bouaghi",
+    "fields": { "country": "Algeria" }
   },
   { "model": "schools.state", "pk": "Oyo", "fields": { "country": "Nigeria" } },
   {
@@ -4833,8 +5107,18 @@
   },
   {
     "model": "schools.state",
+    "pk": "Relizane",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Rivers",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Saïda",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4848,8 +5132,33 @@
   },
   {
     "model": "schools.state",
+    "pk": "Sétif",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Shkoder",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Sidi Bel Abbès",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Skikda",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Sokoto",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Souk Ahras",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4858,8 +5167,63 @@
   },
   {
     "model": "schools.state",
+    "pk": "Tamanrasset",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Taraba",
     "fields": { "country": "Nigeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Tébessa",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Tiaret",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Timimoun",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Tindouf",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Tipaza",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Tirana",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Tissemsilt",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Tizi Ouzou",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Tlemcen",
+    "fields": { "country": "Algeria" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Touggourt",
+    "fields": { "country": "Algeria" }
   },
   {
     "model": "schools.state",
@@ -4868,8 +5232,18 @@
   },
   {
     "model": "schools.state",
+    "pk": "Vlore",
+    "fields": { "country": "Albania" }
+  },
+  {
+    "model": "schools.state",
     "pk": "Wardak",
     "fields": { "country": "Afghanistan" }
+  },
+  {
+    "model": "schools.state",
+    "pk": "Western District",
+    "fields": { "country": "American Samoa" }
   },
   {
     "model": "schools.state",

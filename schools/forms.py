@@ -8,6 +8,7 @@ class SchoolCreationForm(forms.ModelForm):
         exclude = ["created_at", "updated_at"]
 
 
+
 class CountryCreation(forms.ModelForm):
     class Meta:
         model = Country

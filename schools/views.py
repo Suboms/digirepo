@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .forms import *
 from authentication.views import *
@@ -19,6 +20,7 @@ def create_country(request):
         form = CountryCreation()
     return render(request, "school/country.html", {"form": form})
 
+
 def create_state(request):
     form = StateCreation()
     if request.method == "POST":
@@ -34,3 +36,8 @@ def create_state(request):
         form = StateCreation()
     return render(request, "school/state.html", {"form": form})
 
+
+def get_states(request, pk):
+    country = Country.objects.get(name=pk)
+    states = State.objects.filter(country=country).values('name')
+    return JsonResponse(list(states), safe=False)

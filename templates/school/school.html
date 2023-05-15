@@ -2,21 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        input, textarea{
+        input,
+        textarea {
             display: flex;
         }
-        div{
+
+        div {
             margin: 10px;
         }
     </style>
 </head>
 
 <body>
+    {{form.as_div}}
+
+    {% comment %}
     <div>
         <label>{{form.name.label}}</label>
         {{form.name}}
@@ -65,6 +70,8 @@
         <label for="">{{form.description.label}}</label>
         {{form.description}}
     </div>
+    {% endcomment %}
+    <script src="/static/js/school.js"></script>
 </body>
 
 </html>
