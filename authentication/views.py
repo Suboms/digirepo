@@ -26,6 +26,3 @@ def index(request):
     return render(request, "index.html", {})
 
 
-def school(request):
-    form = SchoolCreationForm()
-    return render(request, "school/school.html", {"form": form})

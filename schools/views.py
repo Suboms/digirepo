@@ -6,6 +6,16 @@ from authentication.views import *
 # Create your views here.
 
 
+def school(request):
+    if request.method == "POST":
+        form = SchoolCreationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form = SchoolCreationForm()
+    return render(request, "school/school.html", {"form": form})
+
+
 def create_country(request):
     form = CountryCreation()
     if request.method == "POST":
@@ -39,5 +49,5 @@ def create_state(request):
 
 def get_states(request, pk):
     country = Country.objects.get(name=pk)
-    states = State.objects.filter(country=country).values('name')
+    states = State.objects.filter(country=country).values("name")
     return JsonResponse(list(states), safe=False)

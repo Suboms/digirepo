@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // Create new options for each state and append them to the state field
           data.forEach((state) => {
             var option = document.createElement("option");
-            option.value = state.id;
+            option.value = state.name;
             option.text = state.name;
             stateField.appendChild(option);
           });

@@ -19,7 +19,12 @@
 </head>
 
 <body>
-    {{form.as_div}}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_div}}
+        <input type="submit" value="Submit">
+    </form>
+    
 
     {% comment %}
     <div>
