@@ -1,4 +1,3 @@
-from django_countries.fields import CountryField
 from django.db import models
 
 # Create your models here.
@@ -33,7 +32,7 @@ class School(models.Model):
         Country, on_delete=models.PROTECT, max_length=255, default=""
     )
     state = models.ForeignKey(
-        State, on_delete=models.PROTECT, max_length=255, default=""
+        State, on_delete=models.PROTECT, max_length=255, default=None, null=True
     )
     address = models.CharField(max_length=255, default="")
     phone = models.CharField(max_length=255, default="")
@@ -41,8 +40,8 @@ class School(models.Model):
     pob = models.CharField(max_length=255, default="", verbose_name="P.O.B")
     date_established = models.DateField(verbose_name="Date Established")
     website = models.URLField(max_length=255, default=None, blank=True, null=True)
-    logo = models.ImageField(upload_to="schools/", default=None, blank=True, null=True)
     affiliation = models.ManyToManyField("self", blank=True, symmetrical=False)
+    logo = models.ImageField(upload_to="schools/", default=None, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     description = models.TextField(default="", max_length=255, blank=True, null=True)

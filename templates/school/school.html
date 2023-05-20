@@ -19,63 +19,67 @@
 </head>
 
 <body>
-    <form action="" method="post">
+    <form action="{% url 'school' %}" method="post", id="school-form" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_div}}
+
+        <div>
+            <label>{{form.name.label}}</label>
+            {{form.name}}
+        </div>
+        <div>
+            <label for="">{{form.country.label}}</label>
+            {{form.country}}
+            {% comment %}
+            <select name="country" id="id_country" required>
+                {% for country in countries %}
+                <option value="{{country.country_code}}">{{country.name}}</option>
+                {% endfor %}
+            </select>
+            {% endcomment %}
+        </div>
+        <div>
+            <label for="">{{form.state.label}}</label>
+            {{form.state}}
+        </div>
+       
+        <div>
+            <label for="">{{form.address.label}}</label>
+            {{form.address}}
+        </div>
+        <div>
+            <label for="">{{form.phone.label}}</label>
+            {{form.phone}}
+        </div>
+        <div>
+            <label for="">{{form.email.label}}</label>
+            {{form.email}}
+        </div>
+        <div>
+            <label for="">{{form.pob.label}}</label>
+            {{form.pob}}
+        </div>
+        <div>
+            <label for="">{{form.date_established.label}}</label>
+            {{form.date_established}}
+        </div>
+        <div>
+            <label for="">{{form.website.label}}</label>
+            {{form.website}}
+        </div>
+        <div>
+            <label for="">{{form.affiliation.label}}</label>
+            {{form.affiliation}}
+        </div>
+        <div>
+            <label for="">{{form.logo.label}}</label>
+            {{form.logo}}
+        </div>
+        <div>
+            <label for="">{{form.description.label}}</label>
+            {{form.description}}
+        </div>
         <input type="submit" value="Submit">
     </form>
-    
-
-    {% comment %}
-    <div>
-        <label>{{form.name.label}}</label>
-        {{form.name}}
-    </div>
-    <div>
-        <label for="">{{form.country.label}}</label>
-        {{form.country}}
-    </div>
-    <div>
-        <label for="">{{form.state.label}}</label>
-        {{form.state}}
-    </div>
-    <div>
-        <label for="">{{form.city.label}}</label>
-        {{form.city}}
-    </div>
-    <div>
-        <label for="">{{form.address.label}}</label>
-        {{form.address}}
-    </div>
-    <div>
-        <label for="">{{form.phone.label}}</label>
-        {{form.phone}}
-    </div>
-    <div>
-        <label for="">{{form.email.label}}</label>
-        {{form.email}}
-    </div>
-    <div>
-        <label for="">{{form.pob.label}}</label>
-        {{form.pob}}
-    </div>
-    <div>
-        <label for="">{{form.date_established.label}}</label>
-        {{form.date_established}}
-    </div>
-    <div>
-        <label for="">{{form.website.label}}</label>
-        {{form.website}}
-    </div>
-    <div>
-        <label for="">{{form.logo.label}}</label>
-        {{form.logo}}
-    </div>
-    <div>
-        <label for="">{{form.description.label}}</label>
-        {{form.description}}
-    </div>
-    {% endcomment %}
     <script src="/static/js/school.js"></script>
 </body>
 

@@ -3,10 +3,6 @@ from .models import *
 from .widgets import *
 
 
-class SchoolAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.DateField: {"widget": PastDateField},
-    }
 
 
 class CountryAdmin(admin.ModelAdmin):
@@ -21,6 +17,6 @@ class StateAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(School, SchoolAdmin)
+admin.site.register(School)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(State, StateAdmin)
