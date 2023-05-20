@@ -11,11 +11,13 @@ class SchoolAdmin(admin.ModelAdmin):
 
 class CountryAdmin(admin.ModelAdmin):
     ordering = ("name",)
+    list_display = ("name", "country_code", "capital")
 
 
 class StateAdmin(admin.ModelAdmin):
     list_filter = ("country",)
     ordering = ("name",)
+    list_display = ("name", "country")
 
 
 # Register your models here.

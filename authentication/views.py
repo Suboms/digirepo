@@ -24,5 +24,3 @@ def generate_random_string():
 
 def index(request):
     return render(request, "index.html", {})
-
-

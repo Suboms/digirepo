@@ -6,6 +6,8 @@ from django.db import models
 
 class Country(models.Model):
     name = models.CharField(max_length=5000, default="", unique=True, primary_key=True)
+    country_code = models.CharField(max_length=20, default=None, unique=True, null=True)
+    capital = models.CharField(max_length=5000, default=None, null=True)
 
     def __str__(self):
         return self.name
@@ -38,7 +40,7 @@ class School(models.Model):
     email = models.EmailField(max_length=255, default="")
     pob = models.CharField(max_length=255, default="", verbose_name="P.O.B")
     date_established = models.DateField(verbose_name="Date Established")
-    website=models.URLField(max_length=255, default=None, blank=True, null=True)
+    website = models.URLField(max_length=255, default=None, blank=True, null=True)
     logo = models.ImageField(upload_to="schools/", default=None, blank=True, null=True)
     affiliation = models.ManyToManyField("self", blank=True, symmetrical=False)
     created_at = models.DateTimeField(auto_now_add=True)
