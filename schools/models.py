@@ -40,6 +40,7 @@ class School(models.Model):
     pob = models.CharField(max_length=255, default="", verbose_name="P.O.B")
     date_established = models.DateField(verbose_name="Date Established")
     website = models.URLField(max_length=255, default=None, blank=True, null=True)
+    domain = models.URLField(max_length=255, default=None, null=True, blank=True)
     affiliation = models.ManyToManyField("self", blank=True, symmetrical=False)
     logo = models.ImageField(upload_to="schools/", default=None, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
