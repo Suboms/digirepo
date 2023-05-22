@@ -28,6 +28,7 @@ class State(models.Model):
 
 class School(models.Model):
     name = models.CharField(max_length=255, default="", unique=True)
+    abbr = models.CharField(max_length=50, default=None, blank=True, null=True)
     country = models.ForeignKey(
         Country, on_delete=models.PROTECT, max_length=255, default=""
     )
