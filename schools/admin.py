@@ -3,8 +3,6 @@ from .models import *
 from .widgets import *
 
 
-
-
 class CountryAdmin(admin.ModelAdmin):
     ordering = ("name",)
     list_display = ("name", "country_code", "capital")

@@ -7,23 +7,17 @@ import os
 # Create your views here.
 
 
-
 def school(request):
     countries = Country.objects.all()
     if request.method == "POST":
         form = SchoolCreationForm(request.POST, request.FILES)
         if form.is_valid():
-            schools=form.save(commit=False)
-            if not schools.state:
-                schools.state = None
+            schools = form.save(commit=False)
             schools.save()
-            return redirect(index)  # Redirect to a success page after saving
+            return redirect(index)
     else:
         form = SchoolCreationForm()
     return render(request, "school/school.html", {"form": form, "countries": countries})
-
-
-
 
 
 def get_states(request, pk):
