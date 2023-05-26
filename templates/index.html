@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/static/css/index.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+  <title>Research Paper Repository</title>
+
 </head>
+
 <body>
-    <h1>Hello Fuckers</h1>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Research Repository</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Welcome to the Research Paper Repository</h1>
+          <p class="hero-description">Discover and share academic research papers.</p>
+          <div class="text-center hero-cta">
+            <a href="javascript:;" class="btn btn-primary btn-lg">Sign Up Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <section id="about" class="py-5 bg-light">
+            <h2 class="text-center mb-4">About</h2>
+            <p class="bold-legible">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor, sem ut
+              tincidunt pellentesque,
+              dui ex ullamcorper leo, vitae consectetur felis tellus at arcu.</p>
+          </section>
+        </div>
+        <div class="col-md-6">
+          <section id="features" class="py-5">
+            <h2 class="text-center mb-4">Features</h2>
+            <ul class="list-group transparent-bullets">
+              <li class="list-group-item">Upload and store research papers.</li>
+              <li class="list-group-item">Search for papers by topic, author, or keywords.</li>
+              <li class="list-group-item">Collaborate with other researchers and receive feedback.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+
+
+    <section id="signup" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-4">Sign Up</h2>
+        <p class="text-center">Create an account to start uploading and accessing research papers.</p>
+        <div class="text-center">
+          <a href="javascript:;" class="btn btn-primary btn-lg">Sign Up Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-3 text-center">
+    <div class="container">
+      <p>&copy; 2023 Research Paper Repository. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="/static/js/main.js"></script>
 </body>
+
 </html>

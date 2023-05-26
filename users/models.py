@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from schools.models import *
 
 # user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, related_name='order_user')
 DESIGNATION = (
@@ -10,10 +11,13 @@ DESIGNATION = (
 
 
 class User(AbstractUser):
-    username = models.CharField(max_length=255, default=None, null=True, unique=True)
+    email = models.EmailField(max_length=255, default=None, null=True, unique=True)
     first_name = models.CharField(max_length=255, default=None, null=True)
     last_name = models.CharField(max_length=255, default=None, null=True)
-    email = models.EmailField(max_length=255, default=None, null=True, unique=True)
+    school = models.ForeignKey(School, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    school_name = models.CharField(
+        max_length=255, default=None, null=True, blank=True, verbose_name="School Name"
+    )
     designation = models.CharField(
         max_length=255, default=None, null=True, blank=True, choices=DESIGNATION
     )
@@ -25,6 +29,13 @@ class User(AbstractUser):
         verbose_name="Confirm Password",
     )
     avatar = models.ImageField(
-        upload_to="images", default="avatar.png", null=True, blank=True
+        upload_to="images",
+        default="avatar.png",
+        null=True,
+        blank=True,
+        verbose_name="Profile Picture",
     )
     slug = models.SlugField(max_length=255, default=None, null=True, unique=True)
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ['username']
+    

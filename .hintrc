@@ -8,6 +8,27 @@
       {
         "select-name": "off"
       }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "text-underline-offset",
+          "overflow-anchor",
+          "-webkit-overflow-scrolling",
+          "text-align: -webkit-match-parent",
+          "text-decoration-skip-ink",
+          "-webkit-text-size-adjust",
+          "-webkit-tap-highlight-color",
+          "scroll-behavior"
+        ]
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
     ]
   }
 }

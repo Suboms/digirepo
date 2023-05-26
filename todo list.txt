@@ -1,0 +1,2 @@
+create user view function that will render the create user template
+when directed to the create user url you have t select if you are creating for an individual of an higher instuition
