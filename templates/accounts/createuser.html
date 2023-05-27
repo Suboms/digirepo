@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <form action="{% url 'create-user' %}" method="post">
+  <form action="{% url 'create-user' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="mb-3 mt-3">
       <label for="{{form.email.id_for_label}}" class="form-label">{{form.email.label}}</label>
@@ -54,6 +54,9 @@
      </div>
     </div>
     <input type="hidden" name="next" value="{{ next }}">
+    {{form.slug}}
+    <input type="submit" value="Submit">
+    {{form.errors}}
   </form>
 </body>
 

@@ -1,23 +1,27 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .forms import *
+from users.forms import *
 from authentication.views import *
+from django.shortcuts import get_object_or_404
 import os
 
 # Create your views here.
 
 
-def school(request):
-    countries = Country.objects.all()
+def school(request, slug):
+    user=get_object_or_404(User, slug=slug)
     if request.method == "POST":
-        form = SchoolCreationForm(request.POST, request.FILES)
+        form = SchoolProfile(request.POST, request.FILES)
         if form.is_valid():
             schools = form.save(commit=False)
             schools.save()
             return redirect(index)
     else:
-        form = SchoolCreationForm()
-    return render(request, "school/school.html", {"form": form, "countries": countries})
+        form = SchoolProfile(
+            initial={"name": request.user.school_name, "email": request.user.email}
+        )
+    return render(request, "school/school.html", {"form": form, "user":user})
 
 
 def get_states(request, pk):

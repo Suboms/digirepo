@@ -11,19 +11,30 @@ DESIGNATION = (
 
 
 class User(AbstractUser):
+    """
+    This is the model that handels the creation of users for both individuals and schools
+    """
+
     email = models.EmailField(max_length=255, default=None, null=True, unique=True)
-    first_name = models.CharField(max_length=255, default=None, null=True)
-    last_name = models.CharField(max_length=255, default=None, null=True)
-    school = models.ForeignKey(School, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    first_name = models.CharField(max_length=255, default=None, blank=True, null=True)
+    last_name = models.CharField(max_length=255, default=None, blank=True, null=True)
+    school = models.ForeignKey(
+        School, on_delete=models.CASCADE, default=None, null=True, blank=True
+    )
     school_name = models.CharField(
-        max_length=255, default=None, null=True, blank=True, verbose_name="School Name"
+        max_length=255,
+        default=None,
+        null=True,
+        blank=True,
+        unique=True,
+        verbose_name="School Name",
     )
     designation = models.CharField(
         max_length=255, default=None, null=True, blank=True, choices=DESIGNATION
     )
     password2 = models.CharField(
         max_length=128,
-        default=None,
+        default="",
         null=True,
         blank=True,
         verbose_name="Confirm Password",
@@ -35,7 +46,8 @@ class User(AbstractUser):
         blank=True,
         verbose_name="Profile Picture",
     )
-    slug = models.SlugField(max_length=255, default=None, null=True, unique=True)
+    slug = models.SlugField(
+        max_length=255, default=None, null=True, blank=True, unique=True
+    )
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ['username']
-    
+    REQUIRED_FIELDS = ["username"]
