@@ -1,63 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/static/css/index.css" rel="stylesheet">
-  <title>Registration Page</title>
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+    body {
+      background: url('background-image.jpg');
+    }
+
+    .card {
+      margin: 20px auto;
+      max-width: 500px;
+      padding: 20px;
+      background-image: url("/static/image/img/bg1.jpg");
+      background-color: rgba(0, 0, 0, 0.5);
+      background-blend-mode: darken;
+    }
+  </style>
 </head>
 
 <body>
-  <form action="{% url 'create-user' %}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="mb-3 mt-3">
-      <label for="{{form.email.id_for_label}}" class="form-label">{{form.email.label}}</label>
-      {{form.email}}
-    </div>
-    <div class="mb-3">
-      <label for="{{ form.first_name.id_for_label }}" class="form-label">{{ form.first_name.label }}</label>
-      {{form.first_name}}
-    </div>
-    <div class="mb-3">
-      <label for="{{ form.last_name.id_for_label }}" class="form-label">{{ form.last_name.label }}</label>
-      {{form.last_name}}
-    </div>
-    <div class="mb-3">
-      <label for="{{form.school.id_for_label}}" class="form-label">{{form.school.label}}</label>
-      {{form.school}}
-    </div>
-    <div class="row mb-3 designation">
-      <label for="{{ form.designation.id_for_label }}" class="form-label">{{ form.designation.label }}</label>
-      {% for choice in form.designation %}
-      <div class="col">
-        <div class="form-check form-check-inline">
-          {{choice.tag}}
-          <label class="form-check-label" for="designation_{{ forloop.counter0 }}">{{choice.choice_label}}</label>
+  <div class="card">
+    <h4>Signup Form</h4>
+    <form>
+      <div class="input-field">
+        <input id="email" type="email" class="validate" required>
+        <label for="email">Email</label>
+      </div>
+      <div class="input-field">
+        <input id="first_name" type="text" class="validate" required>
+        <label for="first_name">First Name</label>
+      </div>
+      <div class="input-field">
+        <input id="last_name" type="text" class="validate" required>
+        <label for="last_name">Last Name</label>
+      </div>
+      <div class="input-field">
+        <select id="school" required>
+          <option value="" disabled selected>Select your school</option>
+          <option value="school1">School 1</option>
+          <option value="school2">School 2</option>
+          <option value="school3">School 3</option>
+        </select>
+        <label for="school">School</label>
+      </div>
+      <p>Designation:</p>
+      <p>
+        <label>
+          <input name="designation" type="radio" value="staff" required>
+          <span>Staff</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input name="designation" type="radio" value="student" required>
+          <span>Student</span>
+        </label>
+      </p>
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Profile Pic</span>
+          <input type="file" accept="image/*">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
         </div>
       </div>
-      {% endfor %}
-    </div>
-    <div class="mb-3">
-      <label for="{{form.avatar.id_for_label}}" class="form-label">{{form.avatar.label}}</label>
-      {{form.avatar}}
-    </div>
-    <div class="row mb-3">
-     <div class="col">
-      <label for="{{form.password.id_for_label}}" class="form-label">Password</label>
-      {{form.password}}
-     </div>
-     <div class="col">
-      <label for="{{form.password2.id_for_label}}" class="form label">{{form.password2.label}}</label>
-      {{form.password2}}
-     </div>
-    </div>
-    <input type="hidden" name="next" value="{{ next }}">
-    {{form.slug}}
-    <input type="submit" value="Submit">
-    {{form.errors}}
-  </form>
+      <div class="input-field">
+        <input id="password" type="password" class="validate" required>
+        <label for="password">Password</label>
+      </div>
+      <div class="input-field">
+        <input id="confirm_password" type="password" class="validate" required>
+        <label for="confirm_password">Confirm Password</label>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit">Signup</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+    });
+  </script>
 </body>
 
 </html>

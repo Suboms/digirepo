@@ -77,7 +77,7 @@ class SignUpForm(forms.ModelForm):
 
 class SchoolProfile(forms.ModelForm):
     """
-    This is a form class that handles the updating of an Higher Instution profile after an account has been created
+    This is a form class that handles the creation and updating of an Higher Instution profile after an account has been created
     """
 
     class Meta:
@@ -98,4 +98,29 @@ class SchoolProfile(forms.ModelForm):
             "affiliation": forms.SelectMultiple(attrs={"class": "form-select"}),
             "description": forms.Textarea(attrs={"class": "form-control"}),
             "logo": forms.FileInput(attrs={"class":"form-control"}),
+        }
+
+class UserProfile(forms.ModelForm):
+    """
+    This is a form class that handles the updating of a user profile
+    """
+
+    class Meta:
+        model=User
+        fields = [
+            "email",
+            "first_name",
+            "last_name",
+            "avatar",
+            "password",
+            "password2",
+            "slug",
+        ]
+        widgets = {
+            "email": forms.EmailInput(attrs={"class": "form-control"}),
+            "first_name": forms.TextInput(attrs={"class": "form-control"}),
+            "last_name": forms.TextInput(attrs={"class": "form-control"}),
+            "password": forms.PasswordInput(attrs={"class": "form-control"}),
+            "password2": forms.PasswordInput(attrs={"class": "form-control"}),
+            "slug": forms.TextInput(attrs={"hidden": True}),
         }
