@@ -1,91 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Signup Form</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <style>
     body {
-      background: url('background-image.jpg');
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+
     }
 
-    .card {
-      margin: 20px auto;
-      max-width: 500px;
-      padding: 20px;
-      background-image: url("/static/image/img/bg1.jpg");
-      background-color: rgba(0, 0, 0, 0.5);
-      background-blend-mode: darken;
+    .testbox {
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 20px;
+      background-color: white;
+      margin: 50px auto;
+      padding: 25px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .3),
+        0 2px 4px -2px rgba(0, 0, 0, .3);
     }
+
+    .testbox h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .testbox hr {
+      border: none;
+      border-top: 1px solid #e5e5e5;
+      margin: 20px 0;
+    }
+    .user-form{
+      padding: 10px;
+    }
+    .accounttype {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .accounttype label {
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .icon {
+      padding: 10px;
+      color: #d8d8d8;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+    
+    input[type="radio"]+label {
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      padding-left: 25px;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+
+    input[type="radio"]+label:before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid #cccccc;
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
+
+    input[type="radio"]:checked+label:before {
+      background-color: #2aa1c0;
+      border-color: #2aa1c0;
+    }
+
+    label.radio {
+      color: #2aa1c0;
+      font-weight: 400;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select {
+      width: 100%;
+      border: 1px solid #e5e5e5;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    input[type="radio"],
+    select {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input[type="radio"]:checked+label:before {
+      background-color: #2aa1c0;
+      border-color: #2aa1c0;
+    }
+
+    p {
+      font-size: 12px;
+      color: #666666;
+      margin-bottom: 20px;
+    }
+
+    a.button {
+      display: block;
+      width: 100%;
+      background-color: #2aa1c0;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    a.button:hover {
+      background-color: #1a8095;
+    }
+
+    a.button:active {
+      background-color: #135760;
+    }
+
+    .input-check {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
   </style>
 </head>
 
 <body>
-  <div class="card">
-    <h4>Signup Form</h4>
-    <form>
-      <div class="input-field">
-        <input id="email" type="email" class="validate" required>
-        <label for="email">Email</label>
+  <div class="testbox">
+    <h1>Registration</h1>
+    <form action="submit" method="post" name="myform">
+      <hr>
+      <div class="accounttype">
+        <input type="radio" value="None" id="radioOne" name="account" />
+        <label for="radioOne" class="radio">Personal</label>
+        <input type="radio" value="None" id="radioTwo" name="account" />
+        <label for="radioTwo" class="radio">Company</label>
       </div>
-      <div class="input-field">
-        <input id="first_name" type="text" class="validate" required>
-        <label for="first_name">First Name</label>
-      </div>
-      <div class="input-field">
-        <input id="last_name" type="text" class="validate" required>
-        <label for="last_name">Last Name</label>
-      </div>
-      <div class="input-field">
-        <select id="school" required>
-          <option value="" disabled selected>Select your school</option>
-          <option value="school1">School 1</option>
-          <option value="school2">School 2</option>
-          <option value="school3">School 3</option>
-        </select>
-        <label for="school">School</label>
-      </div>
-      <p>Designation:</p>
-      <p>
-        <label>
-          <input name="designation" type="radio" value="staff" required>
-          <span>Staff</span>
-        </label>
-      </p>
-      <p>
-        <label>
-          <input name="designation" type="radio" value="student" required>
-          <span>Student</span>
-        </label>
-      </p>
-      <div class="file-field input-field">
-        <div class="btn">
-          <span>Profile Pic</span>
-          <input type="file" accept="image/*">
+      <hr>
+      <div class="user-form">
+        <div class="form-group">
+          <label for="emailInput" class="input-label">E-mail</label>
+          <input type="email" id="emailInput" class="form-input" placeholder="Enter Your Email" required>
         </div>
-        <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
+
+        <div class="form-group">
+          <label for="firstName" class="input-label">First Name</label>
+          <input type="text" id="firstName" class="form-input" placeholder="Enter Your First Name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="otherNames" class="input-label">Other Names</label>
+          <input type="text" id="otherNames" class="form-input" placeholder="Enter Other Names" required>
+        </div>
+
+        <div class="form-group">
+          <label for="school" class="input-label">School</label>
+          <select id="school" required>
+            <option value="">Select a School</option>
+            <option value="school1">LASU</option>
+            <option value="school2">UNILAG</option>
+            <option value="school3">UNIBEN</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="schoolName" class="input-label">Name</label>
+          <input type="text" id="schoolName" class="form-input" placeholder="Enter Institution Name" required>
+        </div>
+
+        <div class="form-check-group">
+          <label for="designation" class="input-label">Designation</label>
+          <div class="input-check">
+            <div>
+              <input type="radio" id="staff" name="designation" required>
+              <label for="staff" class="form-check-label">Staff</label>
+            </div>
+            <div>
+              <input type="radio" id="student" name="designation" required>
+              <label for="student" class="form-check-label">Student</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="input-label">Password</label>
+          <input type="password" id="password" placeholder="Enter Your Password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password2" class="input-label">Confirm Password</label>
+          <input type="password" id="password2" placeholder="Confirm Your Password" required>
         </div>
       </div>
-      <div class="input-field">
-        <input id="password" type="password" class="validate" required>
-        <label for="password">Password</label>
-      </div>
-      <div class="input-field">
-        <input id="confirm_password" type="password" class="validate" required>
-        <label for="confirm_password">Confirm Password</label>
-      </div>
-      <button class="btn waves-effect waves-light" type="submit">Signup</button>
+      <p>By clicking Register, you agree to our <a href="#">terms and conditions</a>.</p>
+      <a class="button" onclick="document.forms['myform'].submit();">Register</a>
     </form>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems);
-    });
-  </script>
 </body>
 
 </html>

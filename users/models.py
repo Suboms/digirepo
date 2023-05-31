@@ -16,8 +16,8 @@ class User(AbstractUser):
     """
 
     email = models.EmailField(max_length=255, default=None, null=True, unique=True)
-    first_name = models.CharField(max_length=255, default=None, blank=True, null=True)
-    last_name = models.CharField(max_length=255, default=None, blank=True, null=True)
+    first_name = models.CharField(max_length=255, default=None, blank=True, null=True, verbose_name="First Name")
+    last_name = models.CharField(max_length=255, default=None, blank=True, null=True, verbose_name="Other Names")
     school = models.ForeignKey(
         School, on_delete=models.CASCADE, default=None, null=True, blank=True
     )
