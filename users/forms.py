@@ -28,14 +28,35 @@ class SignUpForm(forms.ModelForm):
             "slug",
         ]
         widgets = {
-            "email": forms.EmailInput(attrs={"class": "form-control"}),
-            "first_name": forms.TextInput(attrs={"class": "form-control"}),
-            "last_name": forms.TextInput(attrs={"class": "form-control"}),
-            "school_name": forms.TextInput(attrs={"class": "form-control"}),
-            "school": forms.Select(attrs={"class": "form-control"}),
-            "designation": forms.RadioSelect(attrs={"class": "form-check-input"}),
-            "password": forms.PasswordInput(attrs={"class": "form-control"}),
-            "password2": forms.PasswordInput(attrs={"class": "form-control"}),
+            "email": forms.EmailInput(
+                attrs={"class": "form-imput", "id": "emailInput"}
+            ),
+            "first_name": forms.TextInput(
+                attrs={"class": "form-input", "id": "firstName", "required": True}
+            ),
+            "last_name": forms.TextInput(
+                attrs={"class": "form-input", "id": "otherNames", "required": True}
+            ),
+            "school_name": forms.TextInput(
+                attrs={"class": "form-input", "id": "schoolName"}
+            ),
+            "school": forms.Select(attrs={"class": "form-input", "id": "school"}),
+            "designation": forms.RadioSelect(attrs={}),
+            "password": forms.PasswordInput(
+                attrs={
+                    "class": "form-input",
+                    "id": "password",
+                    "placeholder": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
+                }
+            ),
+            "password2": forms.PasswordInput(
+                attrs={
+                    "class": "form-input",
+                    "id": "password2",
+                    "required": True,
+                    "placeholder": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
+                }
+            ),
             "slug": forms.TextInput(attrs={"hidden": True}),
         }
 
@@ -92,13 +113,16 @@ class SchoolProfile(forms.ModelForm):
             "phone": forms.TextInput(attrs={"type": "tel", "class": "form-control"}),
             "email": forms.EmailInput(attrs={"class": "form-control"}),
             "pob": forms.TextInput(attrs={"class": "form-control"}),
-            "date_established": forms.DateInput(attrs={"type": "date", "class":"form-control"}),
+            "date_established": forms.DateInput(
+                attrs={"type": "date", "class": "form-control"}
+            ),
             "website": forms.URLInput(attrs={"class": "form-control"}),
             "domain": forms.URLInput(attrs={"class": "form-control"}),
             "affiliation": forms.SelectMultiple(attrs={"class": "form-select"}),
             "description": forms.Textarea(attrs={"class": "form-control"}),
-            "logo": forms.FileInput(attrs={"class":"form-control"}),
+            "logo": forms.FileInput(attrs={"class": "form-control"}),
         }
+
 
 class UserProfile(forms.ModelForm):
     """
@@ -106,7 +130,7 @@ class UserProfile(forms.ModelForm):
     """
 
     class Meta:
-        model=User
+        model = User
         fields = [
             "email",
             "first_name",

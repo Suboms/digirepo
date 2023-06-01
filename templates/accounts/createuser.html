@@ -6,152 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fafafa;
-
-    }
-
-    .testbox {
-      width: 500px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-radius: 20px;
-      background-color: white;
-      margin: 50px auto;
-      padding: 25px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .3),
-        0 2px 4px -2px rgba(0, 0, 0, .3);
-    }
-
-    .testbox h1 {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
-    .testbox hr {
-      border: none;
-      border-top: 1px solid #e5e5e5;
-      margin: 20px 0;
-    }
-    .user-form{
-      padding: 10px;
-    }
-    .accounttype {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .accounttype label {
-      font-size: 14px;
-      font-weight: normal;
-    }
-
-    .icon {
-      padding: 10px;
-      color: #d8d8d8;
-    }
-
-    input[type="radio"] {
-      display: none;
-    }
-    
-    input[type="radio"]+label {
-      display: inline-block;
-      cursor: pointer;
-      position: relative;
-      padding-left: 25px;
-      margin-right: 10px;
-      font-size: 14px;
-    }
-
-    input[type="radio"]+label:before {
-      content: "";
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      border: 1px solid #cccccc;
-      position: absolute;
-      left: 0;
-      top: 2px;
-    }
-
-    input[type="radio"]:checked+label:before {
-      background-color: #2aa1c0;
-      border-color: #2aa1c0;
-    }
-
-    label.radio {
-      color: #2aa1c0;
-      font-weight: 400;
-    }
-
-    input[type="text"],
-    input[type="password"],
-    input[type="email"],
-    select {
-      width: 100%;
-      border: 1px solid #e5e5e5;
-      padding: 10px;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
-
-    input[type="radio"],
-    select {
-      -webkit-appearance: none;
-      appearance: none;
-    }
-
-    input[type="radio"]:checked+label:before {
-      background-color: #2aa1c0;
-      border-color: #2aa1c0;
-    }
-
-    p {
-      font-size: 12px;
-      color: #666666;
-      margin-bottom: 20px;
-    }
-
-    a.button {
-      display: block;
-      width: 100%;
-      background-color: #2aa1c0;
-      color: #ffffff;
-      text-align: center;
-      padding: 10px 0;
-      text-decoration: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    a.button:hover {
-      background-color: #1a8095;
-    }
-
-    a.button:active {
-      background-color: #135760;
-    }
-
-    .input-check {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    
-  </style>
+  <link rel="stylesheet" href="/static/css/singup.css">
 </head>
 
 <body>
   <div class="testbox">
     <h1>Registration</h1>
-    <form action="submit" method="post" name="myform">
+    <form action="{% url 'create-user' %}" method="post" name="myform">
+      {% csrf_token %}
       <hr>
       <div class="accounttype">
         <input type="radio" value="None" id="radioOne" name="account" />
@@ -161,64 +23,103 @@
       </div>
       <hr>
       <div class="user-form">
-        <div class="form-group">
+        <div class="form-group email-input" style="display: none;">
           <label for="emailInput" class="input-label">E-mail</label>
-          <input type="email" id="emailInput" class="form-input" placeholder="Enter Your Email" required>
+          {{form.email}}
         </div>
 
-        <div class="form-group">
-          <label for="firstName" class="input-label">First Name</label>
-          <input type="text" id="firstName" class="form-input" placeholder="Enter Your First Name" required>
-        </div>
+        <div class="name-input" style="display: none;">
+          <div class="form-group fname-input">
+            <label for="firstName" class="input-label">First Name</label>
+            {{form.first_name}}
+          </div>
 
-        <div class="form-group">
-          <label for="otherNames" class="input-label">Other Names</label>
-          <input type="text" id="otherNames" class="form-input" placeholder="Enter Other Names" required>
-        </div>
-
-        <div class="form-group">
-          <label for="school" class="input-label">School</label>
-          <select id="school" required>
-            <option value="">Select a School</option>
-            <option value="school1">LASU</option>
-            <option value="school2">UNILAG</option>
-            <option value="school3">UNIBEN</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="schoolName" class="input-label">Name</label>
-          <input type="text" id="schoolName" class="form-input" placeholder="Enter Institution Name" required>
-        </div>
-
-        <div class="form-check-group">
-          <label for="designation" class="input-label">Designation</label>
-          <div class="input-check">
-            <div>
-              <input type="radio" id="staff" name="designation" required>
-              <label for="staff" class="form-check-label">Staff</label>
-            </div>
-            <div>
-              <input type="radio" id="student" name="designation" required>
-              <label for="student" class="form-check-label">Student</label>
-            </div>
+          <div class="form-group lname-input">
+            <label for="otherNames" class="input-label">Other Names</label>
+            {{form.last_name}}
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="password" class="input-label">Password</label>
-          <input type="password" id="password" placeholder="Enter Your Password" required>
+        <div class="form-group school-select" style="display: none;">
+          <label for="school" class="input-label">School</label>
+          {{form.school}}
         </div>
 
-        <div class="form-group">
-          <label for="password2" class="input-label">Confirm Password</label>
-          <input type="password" id="password2" placeholder="Confirm Your Password" required>
+        <div class="form-group school-name" style="display: none;">
+          <label for="schoolName" class="input-label">Name</label>
+          {{form.school_name}}
+        </div>
+
+        <div class="form-check-group designation-select" style="display: none;">
+          <label for="designation" class="input-label">Designation</label>
+          <div class="input-check">
+            {% for choice in form.designation %}
+            <div>
+              {{choice.tag}}
+              <label for="id_designation_{{forloop.counter0}}">{{choice.choice_label}}</label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="password-input" style="display: none;">
+          <div class="form-group">
+            <label for="password" class="input-label">Password</label>
+            {{form.password}}
+          </div>
+
+          <div class="form-group">
+            <label for="password2" class="input-label">Confirm Password</label>
+            {{form.password2}}
+          </div>
+        </div>
+
+        <div class="footer" style="display: none;">
+          <p>By clicking Register, you agree to our <a href="javascript:;">terms and conditions</a>.</p>
+          <input type="submit" value="Register" class="button">
         </div>
       </div>
-      <p>By clicking Register, you agree to our <a href="#">terms and conditions</a>.</p>
-      <a class="button" onclick="document.forms['myform'].submit();">Register</a>
     </form>
   </div>
+  <script>
+    // Get the radio buttons
+    var radioOne = document.getElementById("radioOne");
+    var radioTwo = document.getElementById("radioTwo");
+
+    // Get the div elements
+    var emailDiv = document.querySelector(".email-input");
+    var schoolDiv = document.querySelector(".school-select");
+    var footerDiv = document.querySelector(".footer");
+    var passwordDiv = document.querySelector(".password-input");
+    var nameDiv = document.querySelector(".name-input");
+    var schoolNameDiv = document.querySelector(".school-name")
+
+    // Add event listener to radioOne
+    radioOne.addEventListener("click", function () {
+      // Change display style for emailDiv, schoolDiv, and footerDiv
+      emailDiv.style.display = "block";
+      schoolDiv.style.display = "block";
+      footerDiv.style.display = "block";
+      schoolNameDiv.style.display = "none";
+
+      // Change display style for passwordDiv and nameDiv
+      passwordDiv.style.display = "flex";
+      nameDiv.style.display = "flex";
+    });
+
+    // Add event listener to radioTwo
+    radioTwo.addEventListener("click", function () {
+      // Change display style for emailDiv, schoolDiv, and footerDiv
+      emailDiv.style.display = "block";
+      schoolNameDiv.style.display = "block";
+      schoolDiv.style.display = "none";
+      footerDiv.style.display = "block";
+
+      // Change display style for passwordDiv and nameDiv
+      passwordDiv.style.display = "flex";
+      nameDiv.style.display = "none";
+    });
+
+  </script>
 </body>
 
 </html>

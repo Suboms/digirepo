@@ -10,7 +10,7 @@ import os
 
 
 def school(request, slug):
-    user=get_object_or_404(User, slug=slug)
+    user = get_object_or_404(User, slug=slug)
     if request.method == "POST":
         form = SchoolProfile(request.POST, request.FILES)
         if form.is_valid():
@@ -21,7 +21,7 @@ def school(request, slug):
         form = SchoolProfile(
             initial={"name": request.user.school_name, "email": request.user.email}
         )
-    return render(request, "school/school.html", {"form": form, "user":user})
+    return render(request, "school/school.html", {"form": form, "user": user})
 
 
 def get_states(request, pk):
