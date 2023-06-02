@@ -23,34 +23,36 @@
       </div>
       <hr>
       <div class="user-form">
-        <div class="form-group email-input" style="display: none;">
+        <div class="form-group email-input">
           <label for="emailInput" class="input-label">E-mail</label>
           {{form.email}}
         </div>
 
-        <div class="name-input" style="display: none;">
-          <div class="form-group fname-input">
-            <label for="firstName" class="input-label">First Name</label>
-            {{form.first_name}}
-          </div>
+        <div class="form-group name-input">
+          <div class="name-group">
+            <div class="form-group fname-input">
+              <label for="firstName" class="input-label">First Name</label>
+              {{form.first_name}}
+            </div>
 
-          <div class="form-group lname-input">
-            <label for="otherNames" class="input-label">Other Names</label>
-            {{form.last_name}}
+            <div class="form-group lname-input">
+              <label for="otherNames" class="input-label">Other Names</label>
+              {{form.last_name}}
+            </div>
           </div>
         </div>
 
-        <div class="form-group school-select" style="display: none;">
+        <div class="form-group school-select">
           <label for="school" class="input-label">School</label>
           {{form.school}}
         </div>
 
-        <div class="form-group school-name" style="display: none;">
+        <div class="form-group school-name">
           <label for="schoolName" class="input-label">Name</label>
           {{form.school_name}}
         </div>
 
-        <div class="form-check-group designation-select" style="display: none;">
+        <div class="form-check-group designation-select">
           <label for="designation" class="input-label">Designation</label>
           <div class="input-check">
             {% for choice in form.designation %}
@@ -61,65 +63,74 @@
             {% endfor %}
           </div>
         </div>
-        <div class="password-input" style="display: none;">
-          <div class="form-group">
-            <label for="password" class="input-label">Password</label>
-            {{form.password}}
-          </div>
 
-          <div class="form-group">
-            <label for="password2" class="input-label">Confirm Password</label>
-            {{form.password2}}
+        <div class="form-group password-input">
+          <div class="password-group">
+            <div class="form-group password1">
+              <label for="password" class="input-label">Password</label>
+              {{form.password}}
+            </div>
+
+            <div class="form-group password2">
+              <label for="password2" class="input-label">Confirm Password</label>
+              {{form.password2}}
+            </div>
           </div>
         </div>
 
-        <div class="footer" style="display: none;">
+        <div class="footer">
           <p>By clicking Register, you agree to our <a href="javascript:;">terms and conditions</a>.</p>
           <input type="submit" value="Register" class="button">
         </div>
       </div>
     </form>
+    <div class="signin-text">
+      <p>Already have an account? <a href="#">Sign in</a>.</p>
+    </div>
   </div>
-  <script>
-    // Get the radio buttons
-    var radioOne = document.getElementById("radioOne");
-    var radioTwo = document.getElementById("radioTwo");
 
-    // Get the div elements
-    var emailDiv = document.querySelector(".email-input");
-    var schoolDiv = document.querySelector(".school-select");
-    var footerDiv = document.querySelector(".footer");
-    var passwordDiv = document.querySelector(".password-input");
-    var nameDiv = document.querySelector(".name-input");
-    var schoolNameDiv = document.querySelector(".school-name")
 
-    // Add event listener to radioOne
-    radioOne.addEventListener("click", function () {
-      // Change display style for emailDiv, schoolDiv, and footerDiv
-      emailDiv.style.display = "block";
-      schoolDiv.style.display = "block";
-      footerDiv.style.display = "block";
-      schoolNameDiv.style.display = "none";
-
-      // Change display style for passwordDiv and nameDiv
-      passwordDiv.style.display = "flex";
-      nameDiv.style.display = "flex";
-    });
-
-    // Add event listener to radioTwo
-    radioTwo.addEventListener("click", function () {
-      // Change display style for emailDiv, schoolDiv, and footerDiv
-      emailDiv.style.display = "block";
-      schoolNameDiv.style.display = "block";
-      schoolDiv.style.display = "none";
-      footerDiv.style.display = "block";
-
-      // Change display style for passwordDiv and nameDiv
-      passwordDiv.style.display = "flex";
-      nameDiv.style.display = "none";
-    });
-
-  </script>
 </body>
 
 </html>
+
+<script>
+  // Get the radio buttons
+  var radioOne = document.getElementById("radioOne");
+  var radioTwo = document.getElementById("radioTwo");
+
+  // Get the div elements
+  var emailDiv = document.querySelector(".email-input");
+  var schoolDiv = document.querySelector(".school-select");
+  var footerDiv = document.querySelector(".footer");
+  var passwordDiv = document.querySelector(".password-input");
+  var nameDiv = document.querySelector(".name-input");
+  var schoolNameDiv = document.querySelector(".school-name")
+
+  // Add event listener to radioOne
+  radioOne.addEventListener("click", function () {
+    // Change display style for emailDiv, schoolDiv, and footerDiv
+    emailDiv.style.display = "block";
+    schoolDiv.style.display = "block";
+    footerDiv.style.display = "block";
+    schoolNameDiv.style.display = "none";
+
+    // Change display style for passwordDiv and nameDiv
+    passwordDiv.style.display = "flex";
+    nameDiv.style.display = "flex";
+  });
+
+  // Add event listener to radioTwo
+  radioTwo.addEventListener("click", function () {
+    // Change display style for emailDiv, schoolDiv, and footerDiv
+    emailDiv.style.display = "block";
+    schoolNameDiv.style.display = "block";
+    schoolDiv.style.display = "none";
+    footerDiv.style.display = "block";
+
+    // Change display style for passwordDiv and nameDiv
+    passwordDiv.style.display = "flex";
+    nameDiv.style.display = "none";
+  });
+
+</script>
