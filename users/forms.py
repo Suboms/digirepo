@@ -28,37 +28,42 @@ class SignUpForm(forms.ModelForm):
             "slug",
         ]
         widgets = {
-            "email": forms.EmailInput(
-                attrs={"class": "form-imput", "id": "emailInput"}
-            ),
+            "email": forms.EmailInput(attrs={"class": "validate", "id": "emailInput"}),
             "first_name": forms.TextInput(
-                attrs={"class": "form-input", "id": "firstName", "required": True}
+                attrs={"class": "validate", "id": "firstName"}
             ),
             "last_name": forms.TextInput(
-                attrs={"class": "form-input", "id": "otherNames", "required": True}
+                attrs={"class": "validate", "id": "otherNames"}
             ),
             "school_name": forms.TextInput(
-                attrs={"class": "form-input", "id": "schoolName"}
+                attrs={"class": "validate", "id": "schoolName"}
             ),
-            "school": forms.Select(attrs={"class": "form-input", "id": "school"}),
-            "designation": forms.RadioSelect(attrs={}),
+            "school": forms.Select(attrs={"id": "school"}),
+            "designation": forms.RadioSelect(attrs={"class": "with-gap"}),
             "password": forms.PasswordInput(
                 attrs={
-                    "class": "form-input",
+                    "class": "validate",
                     "id": "password",
-                    "placeholder": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
                 }
             ),
             "password2": forms.PasswordInput(
                 attrs={
-                    "class": "form-input",
+                    "class": "validate",
                     "id": "password2",
                     "required": True,
-                    "placeholder": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022",
                 }
             ),
             "slug": forms.TextInput(attrs={"hidden": True}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        self.fields["school"].choices = self.get_school_choices()
+
+    def get_school_choices(self):
+        # Retrieve the choices for the school field, excluding the null value
+        choices = School.objects.exclude(name__isnull=True).values_list("id", "name")
+        return choices
 
     def clean_email(self):
         email = self.cleaned_data.get("email")

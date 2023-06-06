@@ -6,131 +6,141 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  {%comment%}<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->{%endcomment%}
+  <link rel="stylesheet" href="/static/css/materialize.min.css">
   <link rel="stylesheet" href="/static/css/singup.css">
 </head>
 
 <body>
-  <div class="testbox">
-    <h1>Registration</h1>
-    <form action="{% url 'create-user' %}" method="post" name="myform">
-      {% csrf_token %}
-      <hr>
-      <div class="accounttype">
-        <input type="radio" value="None" id="radioOne" name="account" />
-        <label for="radioOne" class="radio">Personal</label>
-        <input type="radio" value="None" id="radioTwo" name="account" />
-        <label for="radioTwo" class="radio">Company</label>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-title">
+            <h1>Registration Form</h1>
+          </div>
+
+          <div class="card-content">
+
+            <form action="/register/user/" method="post" name="myform">
+              {% csrf_token %}
+
+              <div class="row accounttype">
+                <div class="input-field col s6">
+                  <p>
+                    <label>
+                      <input class="with-gap" type="radio" value="Personal" name="account" id="radioOne" />
+                      <span>Personal</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="input-field col s6">
+                  <p>
+                    <label>
+                      <input class="with-gap" type="radio" value="Company" name="account" id="radioTwo" />
+                      <span>Company</span>
+                    </label>
+                  </p>
+                </div>
+              </div>
+
+
+              <div class="row email-input" style="display: none;">
+                <div class="input-field col s12">
+                  {{form.email}}
+                  <label for="emailInput">E-mail</label>
+                </div>
+              </div>
+
+              <div class="row name-input" style="display: none;">
+                <div class="input-field col s6">
+                  {{form.first_name}}
+                  <label for="firstName">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  {{form.last_name}}
+                  <label for="otherNames">Other Names</label>
+                </div>
+              </div>
+
+              <div class="row school-name" style="display: none;">
+                <div class="input-field col s12">
+                  {{form.school_name}}
+                  <label for="schoolName">School Name</label>
+                </div>
+              </div>
+
+              <div class="row school-select" style="display: none;">
+                <div class="input-field col s12">
+                  {{form.school}}
+                  <label for="school">School Select</label>
+                </div>
+              </div>
+
+              <div class="designation" style="display: none;">
+                <label for="designation">Designation</label>
+                <div class="row">
+                  {% for choice in form.designation %}
+                  <div class="input-field col s6 designation_{{forloop.counter0}}">
+                    <p>
+                      <label>
+                        {{choice.tag}}
+                        <span>{{choice.choice_label}}</span>
+                      </label>
+                    </p>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+
+
+              <div class="row password-input" style="display: none;">
+                <div class="input-field col s6">
+                  {{form.password}}
+                  <label for="password">Password</label>
+                </div>
+
+                <div class="input-field col s6">
+                  {{form.password2}}
+                  <label for="password2">Confirm Password</label>
+                </div>
+              </div>
+
+              <div class="row footer" style="display: none;">
+                <p>
+                  <label>
+                    <span class="terms">By clicking Register, you agree to our <a href="#">terms and
+                        conditions</a>.</span>
+                  </label>
+                </p>
+              </div>
+
+              <div class="row register" style="display: none;">
+                <div class="input-field col s12">
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Register</button>
+                </div>
+              </div>
+              <script src="/static/js/register.js"></script>
+            </form>
+          </div>
+        </div>
       </div>
-      <hr>
-      <div class="user-form">
-        <div class="form-group email-input">
-          <label for="emailInput" class="input-label">E-mail</label>
-          {{form.email}}
-        </div>
 
-        <div class="form-group name-input">
-          <div class="name-group">
-            <div class="form-group fname-input">
-              <label for="firstName" class="input-label">First Name</label>
-              {{form.first_name}}
-            </div>
-
-            <div class="form-group lname-input">
-              <label for="otherNames" class="input-label">Other Names</label>
-              {{form.last_name}}
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group school-select">
-          <label for="school" class="input-label">School</label>
-          {{form.school}}
-        </div>
-
-        <div class="form-group school-name">
-          <label for="schoolName" class="input-label">Name</label>
-          {{form.school_name}}
-        </div>
-
-        <div class="form-check-group designation-select">
-          <label for="designation" class="input-label">Designation</label>
-          <div class="input-check">
-            {% for choice in form.designation %}
-            <div>
-              {{choice.tag}}
-              <label for="id_designation_{{forloop.counter0}}">{{choice.choice_label}}</label>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-
-        <div class="form-group password-input">
-          <div class="password-group">
-            <div class="form-group password1">
-              <label for="password" class="input-label">Password</label>
-              {{form.password}}
-            </div>
-
-            <div class="form-group password2">
-              <label for="password2" class="input-label">Confirm Password</label>
-              {{form.password2}}
-            </div>
-          </div>
-        </div>
-
-        <div class="footer">
-          <p>By clicking Register, you agree to our <a href="javascript:;">terms and conditions</a>.</p>
-          <input type="submit" value="Register" class="button">
-        </div>
+      <div class="col s12">
+        <p>Already have an account? <a href="#">Sign in</a>.</p>
       </div>
-    </form>
-    <div class="signin-text">
-      <p>Already have an account? <a href="#">Sign in</a>.</p>
+      <div class="errors">{{form.errors}}</div>
     </div>
   </div>
 
 
+  {%comment%}<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->{%endcomment%}
+  <script src="/static/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      M.AutoInit();
+    });
+  </script>
 </body>
 
 </html>
-
-<script>
-  // Get the radio buttons
-  var radioOne = document.getElementById("radioOne");
-  var radioTwo = document.getElementById("radioTwo");
-
-  // Get the div elements
-  var emailDiv = document.querySelector(".email-input");
-  var schoolDiv = document.querySelector(".school-select");
-  var footerDiv = document.querySelector(".footer");
-  var passwordDiv = document.querySelector(".password-input");
-  var nameDiv = document.querySelector(".name-input");
-  var schoolNameDiv = document.querySelector(".school-name")
-
-  // Add event listener to radioOne
-  radioOne.addEventListener("click", function () {
-    // Change display style for emailDiv, schoolDiv, and footerDiv
-    emailDiv.style.display = "block";
-    schoolDiv.style.display = "block";
-    footerDiv.style.display = "block";
-    schoolNameDiv.style.display = "none";
-
-    // Change display style for passwordDiv and nameDiv
-    passwordDiv.style.display = "flex";
-    nameDiv.style.display = "flex";
-  });
-
-  // Add event listener to radioTwo
-  radioTwo.addEventListener("click", function () {
-    // Change display style for emailDiv, schoolDiv, and footerDiv
-    emailDiv.style.display = "block";
-    schoolNameDiv.style.display = "block";
-    schoolDiv.style.display = "none";
-    footerDiv.style.display = "block";
-
-    // Change display style for passwordDiv and nameDiv
-    passwordDiv.style.display = "flex";
-    nameDiv.style.display = "none";
-  });
-
-</script>
