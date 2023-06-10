@@ -28,11 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
-APPEND_SLASH = True
 # Application definition
 
 INSTALLED_APPS = [
     # 'whitenoise.runserver_nostatic',
+    "channels",
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,7 +45,10 @@ INSTALLED_APPS = [
     "schools",
     "users",
     "documents",
+    "rest_framework"
 ]
+
+ASGI_APPLICATION = "digirepo.asgi.application"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

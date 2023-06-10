@@ -23,19 +23,27 @@ var registerDiv = document.querySelector(".register");
 var passwordDiv = document.querySelector(".password-input");
 var nameDiv = document.querySelector(".name-input");
 var schoolNameDiv = document.querySelector(".school-name");
+var fileDiv = document.querySelector(".file-upload");
 
 function toggleElementVisibility(element, isVisible) {
   if (isVisible) {
-    element.style.display = "block";
+    element.classList.remove("hide");
   } else {
-    element.style.display = "none";
+    element.classList.add("hide");
   }
 }
 function resetElementValues(...elements) {
   elements.forEach((element) => {
-    element.value = "";
+    if (element.type === "file") {
+      // Clear file input field
+      element.value = "";
+    } else {
+      // Clear other input fields
+      element.value = "";
+    }
   });
 }
+
 function resetClassName(...elements) {
   elements.forEach((element) => {
     element.className = "validate";
@@ -50,10 +58,28 @@ function handleRadioOneSelection() {
   toggleElementVisibility(schoolNameDiv, false);
   toggleElementVisibility(passwordDiv, true);
   toggleElementVisibility(nameDiv, true);
+  toggleElementVisibility(fileDiv, true);
+
+  // Get the selected value from the select element
+  var selectElement = document.getElementById("school");
+  var selectedValue = selectElement.value;
+
+  // Check if a valid selection is made
+  if (selectedValue !== "") {
+    console.log("done")
+    // Remove the 'hide' class from the designation div
+    var designationDiv = document.querySelector(".designation");
+    designationDiv.classList.remove("hide");
+  } else {
+    // Add the 'hide' class to the designation div if the selection is empty
+    var designationDiv = document.querySelector(".designation");
+    designationDiv.classList.add("hide");
+  }
 
   document.getElementById("firstName").required = true;
   document.getElementById("otherNames").required = true;
   document.getElementById("schoolName").required = false;
+  document.getElementById("upload-field").textContent = "Profile Picture";
 
   resetElementValues(
     document.getElementById("firstName"),
@@ -61,14 +87,15 @@ function handleRadioOneSelection() {
     document.getElementById("schoolName"),
     document.getElementById("emailInput"),
     document.getElementById("password"),
-    document.getElementById("password2")
+    document.getElementById("password2"),
+    document.getElementById("avatar")
   );
   resetClassName(
     document.getElementById("emailInput"),
     document.getElementById("schoolName"),
     document.getElementById("password"),
-    document.getElementById("password2"),
-  )
+    document.getElementById("password2")
+  );
 }
 
 function handleRadioTwoSelection() {
@@ -79,10 +106,12 @@ function handleRadioTwoSelection() {
   toggleElementVisibility(registerDiv, true);
   toggleElementVisibility(passwordDiv, true);
   toggleElementVisibility(nameDiv, false);
+  toggleElementVisibility(fileDiv, true);
 
   document.getElementById("firstName").required = false;
   document.getElementById("otherNames").required = false;
   document.getElementById("schoolName").required = true;
+  document.getElementById("upload-field").textContent = "School Logo";
 
   resetElementValues(
     document.getElementById("firstName"),
@@ -91,7 +120,8 @@ function handleRadioTwoSelection() {
     document.getElementById("emailInput"),
     document.getElementById("password"),
     document.getElementById("password2"),
-    document.getElementById("school")
+    document.getElementById("school"),
+    document.getElementById("avatar")
   );
   resetClassName(
     document.getElementById("firstName"),
@@ -99,8 +129,8 @@ function handleRadioTwoSelection() {
     document.getElementById("emailInput"),
     document.getElementById("schoolName"),
     document.getElementById("password"),
-    document.getElementById("password2"),
-  )
+    document.getElementById("password2")
+  );
 }
 
 // Add event listener to radioOne

@@ -53,6 +53,7 @@ class SignUpForm(forms.ModelForm):
                     "required": True,
                 }
             ),
+            "avatar":forms.FileInput(attrs={"id":"avatar"}),
             "slug": forms.TextInput(attrs={"hidden": True}),
         }
 

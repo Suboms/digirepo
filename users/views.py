@@ -23,15 +23,17 @@ def register(request):
             user.username = user.email.lower() if user.email else None
             user.first_name = user.first_name.lower() if user.first_name else None
             user.last_name = user.last_name.lower() if user.last_name else None
+            user.school=user.school if user.school else None
             user.school_name = user.school_name.lower() if user.school_name else None
+            user.designation = user.designation if user.designation else None 
             if user.first_name and user.last_name:
                 random_string = generate_random_string()
-                slug = slugify(
-                    f"{user.first_name} {user.last_name} {random_string}")
+                slug = slugify(f"{user.first_name} {user.last_name} {random_string}")
                 while User.objects.filter(slug=slug).exists():
                     random_string = generate_random_string()
                     slug = slugify(
-                        f"{user.first_name} {user.last_name} {random_string}")
+                        f"{user.first_name} {user.last_name} {random_string}"
+                    )
 
                 user.slug = slug
             elif user.school_name:
